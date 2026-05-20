@@ -37,7 +37,7 @@ const server = http.createServer(async (req, res) => {
     }
 });
 
-server.listen(3000, () => {
-    console.log('🚀 SERVIDOR VLADY ACTIVO');
-    console.log('🔗 Abre en Chrome: http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
