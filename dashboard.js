@@ -23,8 +23,8 @@ async function loadData() {
   }
 
   try {
-    const response = await fetch('/api/data');
-    const data = await response.json();
+const response = await fetch('https://logistica-b100-default-rtdb.firebaseio.com/.json');
+const data = await response.json();
 
     if (!data || !data.registros) {
       console.log("Esperando estructura de registros...");
