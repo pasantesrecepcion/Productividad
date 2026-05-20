@@ -23,8 +23,9 @@ async function loadData() {
   }
 
   try {
-const response = await fetch('https://logistica-b100-default-rtdb.firebaseio.com/.json');
-const data = await response.json();
+   // Así debe verse tu línea 26 en dashboard.js:
+const response = await fetch('https://productividad2-dashboard.onrender.com/api/data');
+    const data = await response.json();
 
     if (!data || !data.registros) {
       console.log("Esperando estructura de registros...");
