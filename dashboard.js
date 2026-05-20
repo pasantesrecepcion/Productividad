@@ -6,7 +6,7 @@ console.log("Conectado al Servidor Local");
 document.addEventListener("DOMContentLoaded", function () {
   const btnHome = document.getElementById('btnHome');
   if (btnHome) {
-    btnHome.onclick = () => window.location.href = 'http://10.170.20.169:3004';
+    btnHome.onclick = () => window.location.href = 'https://productividad-5vxw.vercel.app';
   }
 
   loadData();

@@ -30,12 +30,26 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(200, { 'Content-Type': 'application/javascript' });
             res.end(data);
         });
-    } else if (req.url === '/api/data') {
-        const data = await getFirebaseData();
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify(data));
-    }
-});
+     } else if (req.url === '/api/data') {
+        // Agregar preflight OPTIONS
+          if (req.method === 'OPTIONS') {
+          res.writeHead(204, {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+         });
+         res.end();
+         return;
+          }
+    const data = await getFirebaseData();
+    res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',          // ← ESTO resuelve Vercel
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
+    });
+    res.end(JSON.stringify(data));
+}
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
