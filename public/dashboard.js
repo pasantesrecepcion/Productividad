@@ -6,7 +6,7 @@ console.log("Conectado al Servidor Local");
 document.addEventListener("DOMContentLoaded", function () {
   const btnHome = document.getElementById('btnHome');
   if (btnHome) {
-    btnHome.onclick = () => window.location.href = 'https://productividad-5vxw.vercel.app';
+    btnHome.onclick = () => window.location.href = 'https://p-asante-vladimir-kvw1.vercel.app/';
   }
 
   loadData();
